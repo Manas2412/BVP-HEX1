@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.1",
+    "@react-three/drei": "^9.114.0",
+    "@react-three/fiber": "^8.17.8",
+    "@truffle/hdwallet-provider": "^1.7.0",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4",
+    "framer-motion": "^11.8.0",
+    "github-globe": "^1.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-particles": "^2.12.2",
+    "tailwind-merge": "^2.5.2",
+    "three": "^0.169.0",
+    "three-globe": "^2.31.3",
+    "truffle": "^5.4.29"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}
