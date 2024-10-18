@@ -1,7 +1,7 @@
 import React from "react";
 
 import Navbar from "./components/Navbar";
-
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./landingPage.css";
 
@@ -37,17 +37,17 @@ export default function LandingPage() {
       >
         {/* /////////////////////////////////////////////////////////////////////////// */}
 
-        <Navbar />
+        {/* <Navbar /> */}
 
         {/* /////////////////////////////////////////////////////////////////////////// */}
 
         <section
           style={{
-            padding: "145px 0 300px 0",
+            padding: "250px 0 300px 0",
           }}
           className="text-white text-center py-20"
         >
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <motion.h1
               id="heroHeading"
               variants={{
@@ -56,7 +56,7 @@ export default function LandingPage() {
               }}
               initial="start"
               animate="animate"
-              transition={{ duration: 0.3, delay: 0.5 }}
+              transition={{ duration: 0.4, delay: 0.5 }}
               className="text-4xl font-bold p-5 text-white"
               style={{
                 fontSize: "70px",
@@ -73,21 +73,39 @@ export default function LandingPage() {
               }}
               initial="start"
               animate="animate"
-              transition={{ duration: 0.3, delay: 0.8 }}
-              className="text-lg"
+              transition={{ duration: 0.4, delay: 0.8 }}
               style={{ fontSize: "25px", color: "rgb(255 255 255 / 70%)" }}
             >
               Our Drug Inventory and Supply Chain Tracking System leverages
               Blockchain tech to ensure transparency and security in supply
               chains, designed for the pharmaceutical industry.
             </motion.p>
+            <Link to="/home">
+              <motion.button
+                variants={{
+                  start: { opacity: 0, y: 10 },
+                  animate: { opacity: 1, y: 0 },
+                }}
+                initial="start"
+                animate="animate"
+                transition={{ duration: 0.6, delay: 1.2 }}
+                style={{
+                  margin: "20px 0 0 0",
+                  fontSize: "18px",
+                  width: "120px",
+                }}
+                className="bg-white text-gray-900 px-4 py-2 rounded-full hover:bg-gray-200"
+              >
+                Start
+              </motion.button>
+            </Link>
           </div>
         </section>
 
         {/* /////////////////////////////////////////////////////////////////////////// */}
 
         <section className="py-12 text-gray-700">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+          <div className="max-w-6xl mx-auto mb-40 grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
             {boxContents.map((boxContent, index) => (
               <motion.div
                 variants={{
@@ -115,24 +133,60 @@ export default function LandingPage() {
 
         <section className="py-12 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4">
+            <motion.h2
+              variants={{
+                start: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0 },
+              }}
+              initial="start"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              className="text-2xl font-bold mb-4"
+              style={{ color: "white" }}
+            >
               Blockchain-Powered Pharmaceutical Traceability
-            </h2>
-            <p className="text-lg text-gray-700 mb-8">
+            </motion.h2>
+            <motion.p
+              variants={{
+                start: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0 },
+              }}
+              initial="start"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              className="text-lg mb-8"
+              style={{ color: "rgb(255 255 255 / 50%)" }}
+            >
               Create a secure, transparent record of medicine journeys from
               suppliers to consumers. This system allows auditing of all
               transactions for traceability in the pharmaceutical supply chain.
-            </p>
-            <div className="w-full h-64 bg-gray-200 flex justify-center items-center rounded-lg">
-              <span className="text-gray-500">Image Placeholder</span>
-            </div>
+            </motion.p>
+            <motion.div
+              variants={{
+                start: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0 },
+              }}
+              initial="start"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              className="w-full h-90 bg-gray-200 flex justify-center items-center"
+              style={{ overflow: "hidden", borderRadius: "20px" }}
+            >
+              <img
+                src="/back.jpg"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </motion.div>
           </div>
         </section>
 
         {/* /////////////////////////////////////////////////////////////////////////// */}
 
         <footer className="py-4 text-white text-center">
-          <p>© 2022 Your Company. All rights reserved.</p>
+          <p>© 2024 PharmaLogiX. All rights reserved.</p>
         </footer>
       </div>
     </div>
