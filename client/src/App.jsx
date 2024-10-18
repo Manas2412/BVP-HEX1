@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import AssignRoles from "./AssignRoles";
+import AssignRolesStatic from "./pages/AssignRolesStatic";
 import Home from "./Home";
 import AddMed from "./AddMed";
 import Supply from "./Supply";
@@ -67,7 +68,7 @@ function App() {
             element={
               <>
                 <Navbar />
-                <AssignRoles />
+                <AssignRolesStatic />
               </>
             }
           />

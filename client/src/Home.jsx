@@ -3,20 +3,22 @@ import React from "react";
 import "./Home.css";
 import { FaIndustry, FaTruck, FaPills, FaSearch } from "react-icons/fa";
 
+import { Link } from "react-router-dom";
+
 function Home() {
   // Navigation handlers
-  const redirect_to_roles = () => {
-    history.push("/roles");
-  };
-  const redirect_to_addmed = () => {
-    history.push("/addmed");
-  };
-  const redirect_to_supply = () => {
-    history.push("/supply");
-  };
-  const redirect_to_track = () => {
-    history.push("/track");
-  };
+  // const redirect_to_roles = () => {
+  //   history.push("/roles");
+  // };
+  // const redirect_to_addmed = () => {
+  //   history.push("/addmed");
+  // };
+  // const redirect_to_supply = () => {
+  //   history.push("/supply");
+  // };
+  // const redirect_to_track = () => {
+  //   history.push("/track");
+  // };
 
   return (
     <div className="home-container">
@@ -28,10 +30,13 @@ function Home() {
 
       <div className="grid-container">
         {/* Register Roles Section */}
-        <div className="grid-item" onClick={redirect_to_roles}>
-          <h5>
-            <FaIndustry /> Register Roles
-          </h5>
+        <div className="grid-item">
+          <Link to="/roles">
+            <h5>
+              <FaIndustry /> Register Roles
+            </h5>
+          </Link>
+
           <img
             src="https://cdn.dribbble.com/users/988448/screenshots/5240042/icon_cadastro_v5.gif"
             alt="Register Roles"
@@ -41,7 +46,7 @@ function Home() {
         </div>
 
         {/* Order Medicines Section */}
-        <div className="grid-item" onClick={redirect_to_addmed}>
+        <div className="grid-item">
           <h5>
             <FaPills /> Order Medicines
           </h5>
@@ -54,7 +59,7 @@ function Home() {
         </div>
 
         {/* Control Supply Chain Section */}
-        <div className="grid-item" onClick={redirect_to_supply}>
+        <div className="grid-item">
           <h5>
             <FaTruck /> Control Supply Chain
           </h5>
@@ -67,7 +72,7 @@ function Home() {
         </div>
 
         {/* Track Medicines Section */}
-        <div className="grid-item" onClick={redirect_to_track}>
+        <div className="grid-item">
           <h5>
             <FaSearch /> Track Medicines
           </h5>
