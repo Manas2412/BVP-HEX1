@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from "react-router-dom"
+// import { useHistory } from "react-router-dom"
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
 import './Home.css';
 
 function Track() {
-    const history = useHistory()
+    // const history = useHistory()
     useEffect(() => {
         loadWeb3();
         loadBlockchaindata();

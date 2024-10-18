@@ -1,6 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@font-face {
+  font-family: 'Geist';
+  src: local('Giest'), url('/public/Geist-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Geist Black';
+  src: local('Giest'), url('/public/Geist-Black.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Geist Bold';
+  src: local('Giest'), url('/public/Geist-Bold.otf') format('opentype');
+}
 
 body {
   font-family: 'Arial', sans-serif;
@@ -24,9 +35,9 @@ body.dark {
 }
 
 .navbar {
-  background-color: #7e837e; /* Changed to a lighter color */
+  background-color: #7e837e;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,11 +53,13 @@ body.dark {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Centered the nav items */
+  justify-content: center;
+  /* Centered the nav items */
 }
 
 .navbar li {
-  margin: 0 15px; /* Added margin between items */
+  margin: 0 15px;
+  /* Added margin between items */
 }
 
 .navbar li a {
@@ -55,14 +68,18 @@ body.dark {
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
-  font-weight: bold; /* Made the text bold */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  font-weight: bold;
+  /* Made the text bold */
+  transition: background-color 0.3s, color 0.3s;
+  /* Smooth transition */
 }
 
 .navbar li a:hover {
   background-color: #ddd;
-  color: #af784c; /* Changed hover color */
-  border-radius: 4px; /* Rounded corners on hover */
+  color: #af784c;
+  /* Changed hover color */
+  border-radius: 4px;
+  /* Rounded corners on hover */
 }
 
 .theme-toggle {
@@ -79,9 +96,9 @@ body.dark {
   background-color: #020402;
 }
 
-body.dark .navbar {
+/* body.dark .navbar {
   background-color: #222;
-}
+} */
 
 body.dark .navbar li a {
   color: #f4f4f4;
