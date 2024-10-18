@@ -14,7 +14,7 @@ export default function Navbar() {
         }}
         initial="start"
         animate="animate"
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
         className="text-lg font-bold"
         style={{ fontSize: "30px" }}
       >
@@ -28,7 +28,7 @@ export default function Navbar() {
           }}
           initial="start"
           animate="animate"
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
           className="bg-white text-gray-900 px-4 py-2 rounded-full hover:bg-gray-200"
         >
           Start
