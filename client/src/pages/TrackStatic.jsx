@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const MedicineTrackingPage = () => {
+const MedTrack = () => {
   const [medicineId, setMedicineId] = useState('');
   const [trackingStage, setTrackingStage] = useState(null);
 
@@ -105,4 +105,4 @@ const MedicineTrackingPage = () => {
   );
 };
 
-export default MedicineTrackingPage;
+export default MedTrack;

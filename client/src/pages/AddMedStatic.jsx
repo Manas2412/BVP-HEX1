@@ -1,7 +1,28 @@
 import React, { useState } from 'react';
 
-const AddMed = () => {
-  const [medicines, setMedicines] = useState([]);
+const AddMedStatic = () => {
+  // Add some dummy data in the initial state
+  const [medicines, setMedicines] = useState([
+    {
+      id: 1,
+      name: 'Paracetamol',
+      description: 'Pain reliever and fever reducer',
+      stage: 'Delivered'
+    },
+    {
+      id: 2,
+      name: 'Amoxicillin',
+      description: 'Antibiotic for bacterial infections',
+      stage: 'In Transit'
+    },
+    {
+      id: 3,
+      name: 'Ibuprofen',
+      description: 'Anti-inflammatory medication',
+      stage: 'Ordered'
+    }
+  ]);
+  
   const [medName, setMedName] = useState('');
   const [medDes, setMedDes] = useState('');
 
@@ -78,4 +99,4 @@ const AddMed = () => {
   );
 };
 
-export default AddMed;
+export default AddMedStatic;

@@ -1,103 +1,226 @@
-import React, { useState } from 'react';
-import { ArrowRight, Package } from 'lucide-react';
+import React, { useState } from "react";
+import '../Home.css'
 
-const MedicineTrackingPage = () => {
-  const [medicineId, setMedicineId] = useState('');
-  const [trackingStage, setTrackingStage] = useState(null);
-
-  const mockMedicines = [
-    { id: 1, name: 'Aspirin', description: 'Pain reliever', stage: 'Sold' },
-    { id: 2, name: 'Amoxicillin', description: 'Antibiotic', stage: 'Retail' },
-    { id: 3, name: 'Lisinopril', description: 'Blood pressure medication', stage: 'Distribution' },
-    { id: 4, name: 'Metformin', description: 'Diabetes medication', stage: 'Manufacture' },
-    { id: 5, name: 'Simvastatin', description: 'Cholesterol medication', stage: 'Raw Materials' },
-  ];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const medicine = mockMedicines.find(med => med.id === parseInt(medicineId));
-    setTrackingStage(medicine ? medicine.stage : 'Not Found');
-  };
-
-  const renderTrackingInfo = () => {
-    if (!trackingStage) return null;
-
-    const stages = ['Raw Materials', 'Manufacture', 'Distribution', 'Retail', 'Sold'];
-    const currentStageIndex = stages.indexOf(trackingStage);
-
-    return (
-      <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
-        <h4 className="text-xl font-bold mb-6">Tracking Information</h4>
-        <div className="flex justify-between items-center">
-          {stages.map((stage, index) => (
-            <div key={stage} className="flex flex-col items-center flex-1">
-              <div 
-                className={`w-16 h-16 rounded-full flex items-center justify-center text-center p-2 ${
-                  index <= currentStageIndex ? 'bg-green-500 text-white' : 'bg-gray-200'
-                }`}
-              >
-                <Package size={24} />
-              </div>
-              <p className="mt-2 text-sm font-medium">{stage}</p>
-              {index < stages.length - 1 && (
-                <ArrowRight className="text-gray-400 mt-2" />
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
+function AssignRoles() {
+  // Dummy data for RMS, Manufacturer, Distributor, and Retailer
+  const [RMS] = useState({
+    0: { id: 1, name: "Raw Supplier 1", place: "City A" },
+    1: { id: 2, name: "Raw Supplier 2", place: "City B" },
+  });
+  const [MAN] = useState({
+    0: { id: 1, name: "Manufacturer 1", place: "City C" },
+    1: { id: 2, name: "Manufacturer 2", place: "City D" },
+  });
+  const [DIS] = useState({
+    0: { id: 1, name: "Distributor 1", place: "City E" },
+    1: { id: 2, name: "Distributor 2", place: "City F" },
+  });
+  const [RET] = useState({
+    0: { id: 1, name: "Retailer 1", place: "City G" },
+    1: { id: 2, name: "Retailer 2", place: "City H" },
+  });
 
   return (
-    <div className="container mx-auto mt-8 px-4">
-      <h1 className="text-4xl font-bold text-center mb-8 text-blue-600">Medicine Tracking System</h1>
-      
-      <form onSubmit={handleSubmit} className="mb-8 bg-white p-6 rounded-lg shadow-md">
-        <div className="flex items-center justify-center">
-          <label htmlFor="medicineId" className="mr-2 font-medium">Medicine ID:</label>
-          <input 
-            type="text" 
-            id="medicineId"
-            value={medicineId} 
-            onChange={(e) => setMedicineId(e.target.value)}
-            placeholder="Enter Medicine ID"
-            required
-            className="border border-gray-300 rounded px-3 py-2 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
-            Track
-          </button>
-        </div>
-      </form>
-
-      {renderTrackingInfo()}
-
-      <h3 className="text-2xl font-bold mt-12 mb-4 text-blue-600">Available Medicines</h3>
-      <div className="overflow-x-auto bg-white rounded-lg shadow">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="bg-gray-50">
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Medicine ID</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Current Processing Stage</th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {mockMedicines.map(medicine => (
-              <tr key={medicine.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap">{medicine.id}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{medicine.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{medicine.description}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{medicine.stage}</td>
+    <div className="bg-gray-100 min-h-screen py-10">
+      <div className="container mx-auto grid-container">
+        <div className="bg-white p-6 rounded-lg shadow-lg mb-6 grid-item">
+          <h4 className="text-2xl font-bold mb-4">Raw Material Supplier</h4>
+          <form className="space-y-4">
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Ethereum Address"
+              disabled
+            />
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Raw Material Supplier Name"
+              disabled
+            />
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Based In"
+              disabled
+            />
+            <button
+              className="w-full p-2 bg-gray-600 text-white rounded"
+              type="submit"
+              disabled
+            >
+              Register
+            </button>
+          </form>
+          <table className="w-full mt-4">
+            <thead>
+              <tr>
+                <th className="border px-4 py-2">ID</th>
+                <th className="border px-4 py-2">Name</th>
+                <th className="border px-4 py-2">Place</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {Object.keys(RMS).map((key) => (
+                <tr key={key}>
+                  <td className="border px-4 py-2">{RMS[key].id}</td>
+                  <td className="border px-4 py-2">{RMS[key].name}</td>
+                  <td className="border px-4 py-2">{RMS[key].place}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="bg-white p-6 rounded-lg shadow-lg mb-6 grid-item">
+          <h4 className="text-2xl font-bold mb-4">Manufacturer</h4>
+          <form className="space-y-4">
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Ethereum Address"
+              disabled
+            />
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Manufacturer Name"
+              disabled
+            />
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Based In"
+              disabled
+            />
+            <button
+              className="w-full p-2 bg-gray-600 text-white rounded"
+              type="submit"
+              disabled
+            >
+              Register
+            </button>
+          </form>
+          <table className="w-full mt-4">
+            <thead>
+              <tr>
+                <th className="border px-4 py-2">ID</th>
+                <th className="border px-4 py-2">Name</th>
+                <th className="border px-4 py-2">Place</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.keys(MAN).map((key) => (
+                <tr key={key}>
+                  <td className="border px-4 py-2">{MAN[key].id}</td>
+                  <td className="border px-4 py-2">{MAN[key].name}</td>
+                  <td className="border px-4 py-2">{MAN[key].place}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="bg-white p-6 rounded-lg shadow-lg mb-6 grid-item">
+          <h4 className="text-2xl font-bold mb-4">Distributor</h4>
+          <form className="space-y-4">
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Ethereum Address"
+              disabled
+            />
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Distributor Name"
+              disabled
+            />
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Based In"
+              disabled
+            />
+            <button
+              className="w-full p-2 bg-gray-600 text-white rounded"
+              type="submit"
+              disabled
+            >
+              Register
+            </button>
+          </form>
+          <table className="w-full mt-4">
+            <thead>
+              <tr>
+                <th className="border px-4 py-2">ID</th>
+                <th className="border px-4 py-2">Name</th>
+                <th className="border px-4 py-2">Place</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.keys(DIS).map((key) => (
+                <tr key={key}>
+                  <td className="border px-4 py-2">{DIS[key].id}</td>
+                  <td className="border px-4 py-2">{DIS[key].name}</td>
+                  <td className="border px-4 py-2">{DIS[key].place}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="bg-white p-6 rounded-lg shadow-lg mb-6 grid-item">
+          <h4 className="text-2xl font-bold mb-4">Retailers</h4>
+          <form className="space-y-4">
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Ethereum Address"
+              disabled
+            />
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Retailer Name"
+              disabled
+            />
+            <input
+              className="w-full p-2 border border-gray-300 rounded"
+              type="text"
+              placeholder="Based In"
+              disabled
+            />
+            <button
+              className="w-full p-2 bg-gray-600 text-white rounded"
+              type="submit"
+              disabled
+            >
+              Register
+            </button>
+          </form>
+          <table className="w-full mt-4">
+            <thead>
+              <tr>
+                <th className="border px-4 py-2">ID</th>
+                <th className="border px-4 py-2">Name</th>
+                <th className="border px-4 py-2">Place</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.keys(RET).map((key) => (
+                <tr key={key}>
+                  <td className="border px-4 py-2">{RET[key].id}</td>
+                  <td className="border px-4 py-2">{RET[key].name}</td>
+                  <td className="border px-4 py-2">{RET[key].place}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default MedicineTrackingPage;
+export default AssignRoles;

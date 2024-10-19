@@ -3,9 +3,13 @@ import "./App.css";
 import AssignRoles from "./AssignRoles";
 import AssignRolesStatic from "./pages/AssignRolesStatic";
 import Home from "./Home";
-import AddMed from "./AddMed";
+import AddMedStatic from "./pages/AddMedStatic";
 import Supply from "./Supply";
 import Track from "./Track";
+import AddMed from "./AddMed";
+import SupplyChainPage from "./pages/SupplyStatic";
+import MedTrack from "./pages/TrackStatic";
+
 import LandingPage from "./LandingPage";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 
@@ -63,6 +67,14 @@ function App() {
               </>
             }
           />
+          <Route 
+          path="/addmed"
+          element={
+            <>
+            <Navbar/>
+            <AddMedStatic/></>
+          }
+          />
           <Route
             path="/roles"
             element={
@@ -72,6 +84,26 @@ function App() {
               </>
             }
           />
+          <Route
+          path="/supply"
+          element={
+          <>
+          <Navbar/>
+          <SupplyChainPage/>
+
+          </>}
+          />
+
+            <Route
+            path="/track-medicines"
+            element={
+              <>
+              <Navbar/>
+              <MedTrack/>
+              </>
+            }
+            />
+
           <Route
             path="/addmed"
             element={

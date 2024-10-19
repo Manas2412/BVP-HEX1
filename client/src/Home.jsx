@@ -4,6 +4,10 @@ import "./Home.css";
 import { FaIndustry, FaTruck, FaPills, FaSearch } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import DelayedLink from "./components/DelayedLink";
+
+
 
 function Home() {
   // Navigation handlers
@@ -30,59 +34,48 @@ function Home() {
 
       <div className="grid-container">
         {/* Register Roles Section */}
-        <div className="grid-item">
-          <Link to="/roles">
-            <h5>
-              <FaIndustry /> Register Roles
-            </h5>
-          </Link>
+        <DelayedLink
+        to="/roles"
+        buttonText="Register Roles"
+        icon={FaIndustry}
+        imgSrc="https://cdn.dribbble.com/users/988448/screenshots/5240042/icon_cadastro_v5.gif"
+        imgAlt="Register Roles"
+      />
 
-          <img
-            src="https://cdn.dribbble.com/users/988448/screenshots/5240042/icon_cadastro_v5.gif"
-            alt="Register Roles"
-            className="step-image mb-4"
-          />
-          <button className="btn btn-primary">Register</button>
-        </div>
+
+          
 
         {/* Order Medicines Section */}
-        <div className="grid-item">
-          <h5>
-            <FaPills /> Order Medicines
-          </h5>
-          <img
-            src="https://cdn.dribbble.com/users/4279575/screenshots/15172726/ezgif-5-e218fcce74d2.gif"
-            alt="Order Medicines"
-            className="step-image mb-3"
-          />
-          <button className="btn btn-primary">Order Medicines</button>
-        </div>
+        <DelayedLink
+        to="/addmed"
+        buttonText="Order Medicines"
+        icon={FaPills}
+        imgSrc="https://cdn.dribbble.com/users/4279575/screenshots/15172726/ezgif-5-e218fcce74d2.gif"
+        imgAlt="Order Medicines"
+      />
 
         {/* Control Supply Chain Section */}
-        <div className="grid-item">
-          <h5>
-            <FaTruck /> Control Supply Chain
-          </h5>
-          <img
-            src="https://pro2-bar-s3-cdn-cf3.myportfolio.com/ec4657434c011e1a856a01752ef5f2f5/4660f53b1f7bff3a445995d3_rw_1200.gif?h=871b45bae2217a2953957135bcf4446a"
-            alt="Control Supply Chain"
-            className="step-image"
-          />
-          <button className="btn btn-primary">Control Supply Chain</button>
-        </div>
+       
+
+        <DelayedLink
+        to="/supply"
+        buttonText="Control Supply Chain"
+        icon={FaTruck}
+        imgSrc="https://pro2-bar-s3-cdn-cf3.myportfolio.com/ec4657434c011e1a856a01752ef5f2f5/4660f53b1f7bff3a445995d3_rw_1200.gif?h=871b45bae2217a2953957135bcf4446a"
+        imgAlt="Control Supply Chain"
+      />
+       
+  
 
         {/* Track Medicines Section */}
-        <div className="grid-item">
-          <h5>
-            <FaSearch /> Track Medicines
-          </h5>
-          <img
-            src="https://dtlive.s3.ap-south-1.amazonaws.com/16651/Medical-Animated-GIF-Icon-Pack1-1.gif"
-            alt="Track Medicines"
-            className="step-image mb-5"
-          />
-          <button className="btn btn-primary">Track Medicines</button>
-        </div>
+        <DelayedLink
+        to="/track-medicines"
+        buttonText="Track Medicines"
+        icon={FaSearch}
+        imgSrc="https://dtlive.s3.ap-south-1.amazonaws.com/16651/Medical-Animated-GIF-Icon-Pack1-1.gif"
+        imgAlt="Track Medicines"
+      />
+    
       </div>
     </div>
   );
